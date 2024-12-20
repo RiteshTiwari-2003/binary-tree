@@ -83,3 +83,66 @@ if __name__ == "__main__":
 
     print("Preorder Traversal (Recursive):")
     preorder_recursive(root)  
+
+iterative preorder traversal
+
+def preorder_iterative(root):
+    if root is None:
+        return 
+    stack=[root]
+    while stack:
+        current=stack.pop();
+        print(current.value,end="")
+        if current.right:
+            stack.append(current.right)
+        if current.left:
+            stack.append(current.left)
+if __name__=="__main__":
+    print("\n PREORDER TRAVERSAL (ITERATIVE)")
+    PREORDER_ITERATIVE(ROOT)
+
+# recursive inorder traversal
+
+Recursive Inorder Traversal
+python
+Copy code
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+def inorder_recursive(node):
+    if node is not None:
+        inorder_recursive(node.left)  # Traverse left subtree
+        print(node.value, end=" ")   # Visit the root
+        inorder_recursive(node.right)  # Traverse right subtree
+
+# Example Usage
+if __name__ == "__main__":
+    # Create the binary tree
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+    root.right.left = Node(6)
+    root.right.right = Node(7)
+
+    print("Inorder Traversal (Recursive):")
+    inorder_recursive(root) 
+
+# iterative inorder traversal
+def inorder_traversal(root):
+    stack=[]
+    current=root
+    while stack or current:
+        while current:
+            stack.append(current)
+            current=current.left
+        current=stack.pop()
+        print(current.value,end="")
+        current=current.right
+if __name__="__main__":
+    print("\n order traversal (iterative)")
+    inorder_traversalo(root)
