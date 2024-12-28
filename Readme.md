@@ -181,3 +181,71 @@ for val in values:
 print("inorder_traversal")
 bt.inorder_traversal(bt.root)
 
+# binary tree representation in java
+
+1. node representation:
+eaqch node of the binary tree 
+contains:
+a value 
+a pointer to the left child 
+a pointer to the right child
+
+class Node{
+    int value;
+    Node left;
+    Node right;
+    Node (int value){
+        this.value=value;
+        left=null;
+        right=null;
+    }
+}
+
+2 . binary tree class
+a class to represent the binary tree , it includes methods like traveersal , insertion , deletion 
+class BinaryTree{
+    Node root;
+    BinaryTree(){
+        root=null;
+    }
+    void insert(int value){
+        root=insertRec(root,value);
+    }
+    Node insertRec(Node root, int value){
+        if (root==null){
+            root=new Node(value);
+            return root;
+        }
+        if (value<root.value){
+            root.left=insertRec(root.left,value);
+        }
+        else if(value>root.value){
+            root.right=insertrec(root.right,value);
+        }
+        return root;
+    }
+    void inorderTraversal(){
+        inorderRec(root);
+    }
+    void inorderRec(Node root){
+        if (root!=null){
+            inorderRec(root.left);
+            System.out.println(root.value+" ");
+            inorderrec(root.right);
+        }
+
+    }
+}
+
+# 3. using the binary tree:
+public class Main{
+    public static void main(String[] args){
+        BinaryTree bt=new BinaryTree();
+        int[] values={10,5,15,3,7,12,18};
+        for(int value:values){
+            bt.insert(value);
+        }
+        System.out.println("Inorder traversal");
+        bt.inorderTraversal();
+    }
+}
