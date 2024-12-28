@@ -146,3 +146,12 @@ def inorder_traversal(root):
 if __name__="__main__":
     print("\n order traversal (iterative)")
     inorder_traversalo(root)
+
+class BInarytree:
+    def __init__(self):
+        self.root=None
+    def insert(self,value):
+        if self.root==None:
+            self.root=Node(value)
+        else:
+            self._insert()
