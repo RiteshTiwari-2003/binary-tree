@@ -249,3 +249,54 @@ public class Main{
         bt.inorderTraversal();
     }
 }
+
+# binary tree traversal in bfs
+from collection import deque
+class Treenode:
+    def __init__(self, value=0,left=None,right=None):
+        self.value=value
+        self.left=left
+        self.right=right
+    def bfs(root):
+        if not root:
+            return 
+        queue=deque([root])
+        while queue:
+            node=queue.popleft()
+            print(node.value,end="")
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+root=TreeNode(1,TreeNode(2),TreeNode(3))
+bfs(root)
+
+# dfs 
+1. inorder traversal (left, root, right)
+2. pre-order traversal(root,left,right)
+3. post-order traversal(left,right ,root)
+
+1. inorder traversal :
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.value,end="")
+        inorder(root.right)
+inorder(root)
+
+2. pre order traversal :
+def preorder(root):
+    if root:
+        print(root.vaue,end=" ")
+        preorder(root.left)
+        preorder(root.right)
+preorder(root)
+
+3. post order traversal:
+
+def postorder(root):
+    if root:
+        postorder(root.left)
+        postorder(root.right)
+        print(root.value,end=" ")
+postorder(root)
