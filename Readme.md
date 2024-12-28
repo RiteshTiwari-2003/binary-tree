@@ -151,7 +151,33 @@ class BInarytree:
     def __init__(self):
         self.root=None
     def insert(self,value):
-        if self.root==None:
+        if self.root is None:
             self.root=Node(value)
         else:
-            self._insert()
+            self._insert(value,self.root)
+    def _insert(self, value,current_node):
+        if value<current_node.value:
+            if current_node.left is None:
+                current_node.left=Node(value)
+            else:
+                self._insert(value,current_node.left)
+        elif value>current_node.value:
+            if current_node.right is None:
+                current_node.right=Node(value)
+            else:
+                self._insert(value,current_node.right)
+        else:
+            print(f"Value {value} already exist in the tree")
+    def inorder_traversal(self,node):
+        if node is not None:
+            self.inorder_traversal(node.left)
+            print(node.value,end="")
+            self.inorder_traversal(node.right)
+#using the binary tree 
+bt=BinaryTree()
+values=[10,5,15,3,7,12,18]
+for val in values:
+    bt.insert(val)
+print("inorder_traversal")
+bt.inorder_traversal(bt.root)
+
