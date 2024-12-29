@@ -150,3 +150,32 @@ public class BinaryTreePreorder{
     tree.iterativePreorderTraversal(root);
    }
 }
+
+# iterative inorder traversal in binary tree
+
+implementation in python
+
+class TreeNode:
+    def __init__(self, val=0,left=None,right=None):
+        self.val=val
+        self.left=left
+        self.right=right
+def inorderTraversal(root):
+    stck=[]
+    result=[]
+    current=root
+    while current is not None or stck:
+        while current is not None:
+            stack.append(current)
+            current=current.left
+        current=stack.pop()
+        result.append(current.value)
+        current=current.right
+    return result
+if __name__="__main__":
+    root=TreeNode(1)
+    root.right=TrreNode(2)
+    root.right.left=TreeNode(3)
+    print("Inorder traversal",inorderTraversal(root))
+
+    
