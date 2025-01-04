@@ -112,3 +112,4 @@ if __name__ == "__main__":
 depth: distance from root to that node is called the depth of that node , each node have its own depth seperate
 
 hieght: distance from a node to deepest leaf is called hight of tree 
+simpple formula for this is that 1+max(hieght of left tree ,hieght of right tree)
