@@ -104,3 +104,7 @@ if __name__ == "__main__":
     print("Inorder:", traverse_tree(root, 2))   # Output: [4, 2, 5, 1, 6, 3, 7]
     print("Postorder:", traverse_tree(root, 3)) # Output: [4, 5, 2, 6, 7, 3, 1]
 
+
+# maximum depth in binary tree
+
+
