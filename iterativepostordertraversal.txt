@@ -129,4 +129,52 @@ if __name__="__main__":
     root=TreeNode(1)
     root.left=TreeNode(2)
     root.right=TreeNode(3)
-    
+
+
+check binary tree is balanced or not
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def is_balanced(root):
+    """
+    Returns True if the binary tree is balanced, otherwise False.
+    """
+    def check_height(node):
+        if not node:
+            return 0  # Height of an empty subtree is 0
+        
+        left_height = check_height(node.left)
+        if left_height == -1:  # Left subtree is unbalanced
+            return -1
+
+        right_height = check_height(node.right)
+        if right_height == -1:  # Right subtree is unbalanced
+            return -1
+
+        if abs(left_height - right_height) > 1:
+            return -1  # Current node is unbalanced
+
+        return 1 + max(left_height, right_height)  # Return height of the current subtree
+
+    return check_height(root) != -1
+
+# Example Usage
+if __name__ == "__main__":
+    # Balanced binary tree
+    root1 = TreeNode(1)
+    root1.left = TreeNode(2)
+    root1.right = TreeNode(3)
+    root1.left.left = TreeNode(4)
+    root1.left.right = TreeNode(5)
+
+    # Unbalanced binary tree
+    root2 = TreeNode(1)
+    root2.left = TreeNode(2)
+    root2.left.left = TreeNode(3)
+
+    print("Is tree 1 balanced?", is_balanced(root1))  # Output: True
+    print("Is tree 2 balanced?", is_balanced(root2))  # Output: False
