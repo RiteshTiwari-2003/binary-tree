@@ -1,0 +1,33 @@
+# iterative postorder traversal in binary tree using one Stack
+
+class TreeNode:
+    def _init_(self,val=0,left=None,right=None):
+        self.val=val
+        self.left=left
+        self.right=right
+def postOrderTraversal(root):
+    if not root:
+        return []
+    stack=[]
+    postorder=[]
+    current = root
+    while(current!=null && !stack.isEmpty()):
+        if (current!=null){
+            stack.push(current)
+            current=current.left;
+        }
+        else{
+            temp=st.top().right()
+            if temp==null:
+                temp=stack.top();
+                stack.pop();
+                postorder.add(temp);
+                while(!st.empty()&&temp==stack.top().right){
+                    temp=stack.top();
+                    stack.pop();
+                    postorder.add(temp);
+
+                }        }
+            else{
+                current=temp;
+            }
