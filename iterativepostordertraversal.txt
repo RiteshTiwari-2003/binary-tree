@@ -113,3 +113,20 @@ depth: distance from root to that node is called the depth of that node , each n
 
 hieght: distance from a node to deepest leaf is called hight of tree 
 simpple formula for this is that 1+max(hieght of left tree ,hieght of right tree)
+
+class TreeNode:
+    def __init__(self,val=0,left=None,right=None):
+        self.val=val
+        self.left=left
+        self.right=right
+def max_depth(root):
+    if not root:
+        return 0
+    left_depth=max_depth(root.left)
+    right_depth=max_depth(root.right)
+    return 1+max(left_depth+right_depth)
+if __name__="__main__":
+    root=TreeNode(1)
+    root.left=TreeNode(2)
+    root.right=TreeNode(3)
+    
