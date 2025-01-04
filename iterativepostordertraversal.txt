@@ -107,4 +107,8 @@ if __name__ == "__main__":
 
 # maximum depth in binary tree
 
+# difference between depth and hieght 
 
+depth: distance from root to that node is called the depth of that node , each node have its own depth seperate
+
+hieght: distance from a node to deepest leaf is called hight of tree 
