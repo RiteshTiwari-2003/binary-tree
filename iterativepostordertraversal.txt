@@ -178,3 +178,14 @@ if __name__ == "__main__":
 
     print("Is tree 1 balanced?", is_balanced(root1))  # Output: True
     print("Is tree 2 balanced?", is_balanced(root2))  # Output: False
+
+    Bool check(Node):
+        if node==null:
+            return True
+        lh=findHLeft(node.left)
+        rh=findHRight(node.right)
+        if (abs(rh-lh)>1) return false
+        bool left=check(node.left)
+        bool right=check(node.right)
+        if(!left||!right) return false
+        return true
